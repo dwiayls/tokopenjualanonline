@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDDI STORE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.freepik.com/256/8476/8476516.png">
+
+
+    <script>
+        function showPage(pageId) {
+            var pages = document.getElementsByClassName("page");
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].classList.add("hidden");
+            }
+            document.getElementById(pageId).classList.remove("hidden");
+            window.location.hash = pageId;
+        }
+
+        function updateHarga() {
+            var hargaProduk = parseInt(document.getElementById("produkPesan").value);
+            var jumlah = parseInt(document.getElementById("jumlah").value) || 1;
+            var totalHarga = hargaProduk * jumlah;
+            document.getElementById("totalHarga").innerText = "Rp " + totalHarga.toLocaleString();
+        }
+
+        function tampilkanHasil() {
+            var nama = document.getElementById("nama").value;
+            var alamat = document.getElementById("alamat").value;
+            var produk = document.getElementById("produkPesan").options[document.getElementById("produkPesan").selectedIndex].text;
+            var jumlah = document.getElementById("jumlah").value;
+            var totalHarga = document.getElementById("totalHarga").innerText;
+
+            var hasil = "Nama: " + nama + "<br>Alamat: " + alamat + "<br>Produk: " + produk + "<br>Jumlah: " + jumlah + "<br>Total Harga: " + totalHarga;
+            document.getElementById("hasilPesanan").innerHTML = hasil;
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>PDDI STORE</h1>
+    </header>
+
+    <nav>
+        <a onclick="showPage('beranda')">Beranda</a>
+        <a onclick="showPage('produk')">Produk</a>
+        <a onclick="showPage('pesan')">Pesan</a>
+        <a onclick="showPage('tentang')">Tentang Kami</a>
+        <a onclick="showPage('kontak')">Kontak</a>
+    </nav>
+
+    <div id="beranda" class="page">
+        <div class="container">
+            <h2>Selamat Datang di PDDI STORE <br>Belanja Lebih Mudah dari Rumah!</h2>
+            <p>Kami menyediakan berbagai macam pilihan outfit kekinian yang sedang tren di kalangan anak muda maupun dewasa.<br> Produk produk kami dirancang untuk mengikuti gaya fashion masa kini yang stylish dan up to date,<br>tentunya dengan kualitas terbaik dan harga yang bersahabat untuk para pelajar.</p>
+        </div>
+    </div>
+
+    <div id="produk" class="page hidden">
+        <div class="container">
+            <h2>Produk Terlaris</h2>
+            <div class="product">
+                <img src="https://contents.mediadecathlon.com/p2157319/k$45a8143f29ae498e05be9c1588d95135/kaos-running-dry-fit-baju-lari-pria-breathable-hitam-decathlon-8488034.jpg">
+                <p>Baju Kaos - Rp 50.000</p>
+              </div>
+              <div class="product">
+                <img src="https://lozy.id/cdn/shop/files/Artboard6_1a1a4bd7-817d-4bd3-82fa-5bca7736d9bd_800x.jpg">
+                <p>Pashmina - Rp 35.000</p>
+              </div>
+              <div class="product">
+                <img src="https://images.tokopedia.net/img/cache/700/VqbcmM/2023/7/12/c66b1d43-cc31-462f-9499-dd8b82c7d260.jpg">
+                <p>Outer Rajut - Rp 40.000</p>
+              </div>
+              <div class="product">
+                <img src="https://executive.co.id/cdn/shop/files/5-BLWSIG124D004_OFF_WHITE_1_612c4660-a4e4-4896-ab78-f7af601374bb_762x.jpg">
+                <p>Baju Tunik - Rp 95.000</p>
+              </div>
+              <div class="product">
+                <img src="https://img.lazcdn.com/g/p/93b30cc08a55a4b31c2172a2dcd819c3.jpg_720x720q80.jpg">
+                <p>Rok Plisket - Rp 65.000</p>
+              </div>
+              <div class="product">
+                <img src="https://id-test-11.slatic.net/p/ee02144fc5948574e3e667c3f3ae2750.jpg">
+                <p>Hijab Segi 4 - Rp 29.000</p>
+              </div>
+              <div class="product">
+                <img src="https://mylesapparel.com/cdn/shop/products/HW_Crew_SteelyBlue_01_600x.jpg">
+                <p>Crewneck - Rp 89.000</p>
+              </div>
+              <div class="product">
+                <img src="https://bimg.akulaku.net/goods/spu/98f4a59eeaf14100be46638aebc0d5932425.jpg">
+                 <p>Loose Pants - Rp 70.000</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="pesan" class="page hidden">
+        <div class="container">
+            <h2>Form Pemesanan</h2>
+            <div class="form-container">
+                <form onsubmit="event.preventDefault(); tampilkanHasil();">
+                    <label for="nama">Nama:</label>
+                    <input type="text" id="nama" required>
+
+                    <label for="alamat">Alamat Pembeli:</label>
+                    <input type="text" id="alamat" required>
+
+                    <label for="produkPesan">Pilih Produk:</label>
+                    <select id="produkPesan" onchange="updateHarga()">
+                        <option value="0"></option>
+                        <option value="50000">Baju Kaos - Rp 50.000</option>
+                        <option value="35000">Pashmina - Rp 35.000</option>
+                        <option value="40000">Outer Rajut - Rp 40.000</option>
+                        <option value="95000">Baju Tunik - Rp 95.000</option>
+                        <option value="65000">Rok Plisket - Rp 65.000</option>
+                        <option value="29000">Hijab Segi 4 - Rp 29.000</option>
+                        <option value="89000">Crewneck - Rp 89.000</option>
+                        <option value="70000">Loose Pants - Rp 70.000</option>
+                    </select>
+
+                    <label for="jumlah">Jumlah:</label>
+                    <input type="number" id="jumlah" min="1" value="1" oninput="updateHarga()" required>
+
+                    <h3>Total Harga: <span id="totalHarga">Rp 50.000</span></h3>
+
+                    <button type="submit">Pesan Sekarang</button>
+                </form>
+                <p id="hasilPesanan"></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="tentang" class="page hidden">
+        <div class="container">
+            <h2>Tentang Kami</h2>
+            <p>PDDI STORE – Fashion dengan Hati<br>
+                PDDI STORE lahir dari satu keinginan sederhana: membantu setiap orang tampil percaya diri tanpa harus menguras kantong. Kami percaya bahwa fashion bukan cuma soal gaya, tapi juga soal kenyamanan, identitas, dan kebahagiaan diri.
+                Berawal dari kegemaran memilih baju-baju cantik dan keinginan untuk berbagi dengan lebih banyak orang, kami mulai merintis PDDI STORE. Bukan dari tempat mewah—tapi dari ruang kecil, ide besar, dan semangat yang nggak pernah padam.
+                Kami tahu, mencari pakaian yang nyaman, berkualitas, dan tetap terjangkau bisa jadi tantangan. Karena itu, kami berkomitmen hanya memilih produk yang benar-benar kami percaya: mulai dari bahan yang lembut, model yang kekinian, hingga harga yang masuk akal.
+                Di PDDI STORE, kamu bisa menemukan berbagai pilihan: dari hijab premium, outer rajut hangat, tunik santai, sampai rok plisket yang manis. Semua kami pilih dan kurasi dengan cinta—seperti memilihkan baju untuk sahabat sendiri.
+                Lebih dari sekadar jualan, kami ingin membangun hubungan. Kami mendengar, belajar, dan terus berkembang supaya bisa memberikan pengalaman belanja yang menyenangkan buat kamu.
+                Terima kasih sudah mampir dan mendukung PDDI STORE. Semoga setiap paket yang kamu terima bisa membawa senyum, semangat, dan sedikit rasa spesial yang kami kirim dari hati.</p>
+        </div>
+    </div>
+
+    <div id="kontak" class="page hidden">
+        <div class="container">
+            <h2>Kontak</h2>
+            <p>telp: 0812-3456-7890</p>
+            <p>instagram: @pddi.storeplg</p>
+            <p>email: support@pddistore.com</p>
+            <p>alamat: Jl. Bukit Besar No. 10, Palembang</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffddf7;
+  margin: 0;
+  padding: 10px;
+}
+
+header {
+  font-family: lucida sans;
+  background-image: url("https://img.freepik.com/premium-vector/background-butterflies-soft-pink-colors-use-it-advertisements-posters-social-media_1034113-76.jpg");
+  color: #f18bc5;
+  padding: 15px;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: #f7b4da;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+nav a {
+  color: #f7b4da;
+  text-decoration: none;
+  margin: 0 15px;
+  padding: 10px;
+  background-color: #994f83;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+nav a:hover {
+  background-color: #f256b6;
+}
+
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+.product {
+  display: inline-block;
+  margin: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  background-color: white;
+  text-align: center;
+  width: 200px;
+}
+
+.product img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+}
+
+.form-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-container input,
+.form-container select,
+.form-container button {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+h2 {
+  font-family:Lucida Sans;
+  color: #f256b6;
+}
+
+p {
+  font-family:cursive;
+  color: #994f83;
+  text-align:center;
+}
+
+html {
+  overflow-y: scroll;
+}
